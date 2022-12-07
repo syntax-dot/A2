@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.root">
-    <OtherSettings :locklentaupdate="user.locklentaupdate"
-                   :selectedTimezone="user.timezone"/>
+    <!-- <OtherSettings :locklentaupdate="user.locklentaupdate"
+                   :selectedTimezone="user.timezone"/> -->
 
     <SaveButton/>
   </div>
@@ -10,7 +10,7 @@
 <script lang="ts" setup>
 import { SaveButton } from '../components/SaveButton'
 import { onMounted, ref } from 'vue'
-import { login } from '../../api/login'
+import { register } from '../../api/register'
 import { getUser } from '../../api/getUser'
 import { OtherSettings } from '../components/OtherSettings'
 import { User } from '../types/User'
@@ -18,13 +18,13 @@ import { User } from '../types/User'
 const user = ref<User>()
 
 onMounted(async () => {
-  await login()
+  await register()
 
   const response = await getUser()
   if (response)
     user.value = response
 
-  console.log(user)
+  console.log(user.value?.locklentaupdate)
 })
 </script>
 

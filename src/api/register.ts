@@ -1,6 +1,6 @@
 import { postLogin } from '../schema/services'
 
-export async function login() {
+export async function register() {
   const isLogin = localStorage.getItem('userToken')
   if (isLogin)
     return
