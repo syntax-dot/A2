@@ -5,9 +5,9 @@
  * @version 6
  */
 
-import axios, { AxiosRequestConfig, CancelToken } from "axios";
-import { getAxiosInstance } from "./config";
-import type { Security, SwaggerResponse } from "./config";
+import axios, { AxiosRequestConfig, CancelToken } from 'axios'
+import { getAxiosInstance } from './config'
+import type { Security, SwaggerResponse } from './config'
 
 /**
  * Cancellation handled here, you can cancel request by call promise.cancel()
@@ -21,16 +21,16 @@ import type { Security, SwaggerResponse } from "./config";
  * @returns
  */
 function cancellation<T>(
-  getPromise: (cancelToken: CancelToken) => Promise<T>
+  getPromise: (cancelToken: CancelToken) => Promise<T>,
 ): Promise<T> {
-  const source = axios.CancelToken.source();
-  const promise = getPromise(source.token);
+  const source = axios.CancelToken.source()
+  const promise = getPromise(source.token)
   //@ts-ignore
   promise.cancel = () => {
-    source.cancel("request canceled");
-  };
+    source.cancel('request canceled')
+  }
 
-  return promise;
+  return promise
 }
 
 export const Http = {
@@ -40,67 +40,63 @@ export const Http = {
     //@ts-ignore
     _requestBody: undefined,
     security: Security,
-    configOverride?: AxiosRequestConfig
+    configOverride?: AxiosRequestConfig,
   ): Promise<SwaggerResponse<any>> {
     return cancellation((cancelToken) =>
       getAxiosInstance(security).get(url, {
         cancelToken,
         params: queryParams,
         ...configOverride,
-      })
-    );
+      }))
   },
   postRequest(
     url: string,
     queryParams: any | undefined,
     requestBody: any | undefined,
     security: Security,
-    configOverride?: AxiosRequestConfig
+    configOverride?: AxiosRequestConfig,
   ): Promise<SwaggerResponse<any>> {
     return cancellation((cancelToken) =>
       getAxiosInstance(security).post(url, requestBody, {
         cancelToken,
         params: queryParams,
         ...configOverride,
-      })
-    );
+      }))
   },
   putRequest(
     url: string,
     queryParams: any | undefined,
     requestBody: any | undefined,
     security: Security,
-    configOverride?: AxiosRequestConfig
+    configOverride?: AxiosRequestConfig,
   ): Promise<SwaggerResponse<any>> {
     return cancellation((cancelToken) =>
       getAxiosInstance(security).put(url, requestBody, {
         cancelToken,
         params: queryParams,
         ...configOverride,
-      })
-    );
+      }))
   },
   patchRequest(
     url: string,
     queryParams: any | undefined,
     requestBody: any | undefined,
     security: Security,
-    configOverride?: AxiosRequestConfig
+    configOverride?: AxiosRequestConfig,
   ): Promise<SwaggerResponse<any>> {
     return cancellation((cancelToken) =>
       getAxiosInstance(security).patch(url, requestBody, {
         cancelToken,
         params: queryParams,
         ...configOverride,
-      })
-    );
+      }))
   },
   deleteRequest(
     url: string,
     queryParams: any | undefined,
     requestBody: any | undefined,
     security: Security,
-    configOverride?: AxiosRequestConfig
+    configOverride?: AxiosRequestConfig,
   ): Promise<SwaggerResponse<any>> {
     return cancellation((cancelToken) =>
       getAxiosInstance(security).delete(url, {
@@ -108,7 +104,6 @@ export const Http = {
         cancelToken,
         params: queryParams,
         ...configOverride,
-      })
-    );
+      }))
   },
-};
+}
