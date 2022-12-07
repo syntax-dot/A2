@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.root">
-SETTINGS PAGE
+  SETTINGS PAGE
   </div>
 </template>
 
@@ -15,6 +15,4 @@ SETTINGS PAGE
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
-
 </style>

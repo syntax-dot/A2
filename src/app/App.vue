@@ -1,31 +1,76 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div :class="$style.root">
+    <div :class="$style.header"></div>
+
+    <div :class="$style.content">
+      <router-view/>
+    </div>
+
+    <div :class="$style.footer">
+    </div>
+
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+<script setup lang="ts">
+
+</script>
+
+<style module lang="scss">
+@import "../css/variables.scss";
+.root {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  grid-template-areas: 'Header' 'Content' 'Footer';
+  background-color: $main-bg-color;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.header {
+  height: 71px;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+.footer {
+  height: 226px;
+}
+
+
+</style>
+
+<style lang="scss">
+@import "../css/variables.scss";
+
+:root {
+  font-size: 62.5%;
+}
+
+#app,
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app,
+body,
+html {
+  // height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $main-bg-color;
+}
+
+
+h1 {
+
+}
+
+#app {
+  font-family: 'Open Sans', sans-serif;
 }
 </style>
