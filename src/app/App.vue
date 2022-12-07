@@ -1,14 +1,12 @@
 <template>
   <div :class="$style.root">
-    <div :class="$style.header"></div>
+    <div :class="$style.header"/>
 
     <div :class="$style.content">
       <router-view/>
     </div>
 
-    <div :class="$style.footer">
-    </div>
-
+    <div :class="$style.footer"/>
   </div>
 </template>
 
@@ -37,8 +35,6 @@
 .footer {
   height: 226px;
 }
-
-
 </style>
 
 <style lang="scss">
@@ -65,12 +61,12 @@ body {
   background-color: $main-bg-color;
 }
 
-
 h1 {
-
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 #app {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 </style>

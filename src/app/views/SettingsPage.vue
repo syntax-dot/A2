@@ -1,18 +1,16 @@
 <template>
   <div :class="$style.root">
-  SETTINGS PAGE
+    <SaveButton/>
   </div>
 </template>
 
 <script lang="ts" setup>
-
-
+import { SaveButton } from '../components/SaveButton'
 
 </script>
 
 <style module lang="scss">
 .root {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+
 }
 </style>
