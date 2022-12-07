@@ -4,7 +4,7 @@
 
     <div>
       <TimezoneSelect label="Часовой пояс"
-                      :timezones="Timezone"/>
+                      :selectedTimezone="selectedTimezone"/>
     </div>
   </div>
 </template>
@@ -12,6 +12,9 @@
 <script lang="ts" setup>
 import { Timezone } from '../../types/User'
 import { TimezoneSelect } from '../TimezoneSelect'
+import { OtherSettingsProps } from './OtherSettingsprops'
+
+defineProps<OtherSettingsProps>()
 </script>
 
 <style module lang="scss">

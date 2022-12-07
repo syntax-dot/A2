@@ -18,6 +18,7 @@ export interface User {
   fname: string
   notifytype: string
   notifytypestring: string
+  locklentaupdate: boolean // Автоматический переход к новым обьявлениям
   phone: number
   timezone: string
   timezonestring: string
