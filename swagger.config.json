@@ -1,0 +1,5 @@
+{
+  "$schema": "https://raw.githubusercontent.com/hosseinmd/swagger-typescript/master/schema/v6.json",
+  "url": "https://api.av100.ru/v3/swagger/docs/v3",
+  "dir": "./src/schema"
+}

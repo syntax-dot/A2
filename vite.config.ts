@@ -10,6 +10,15 @@ function generateScopedName(name: string, filename: string) {
 }
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api': {
+      target: 'https://api.av100.ru/v3/swagger/ui/index#/User',
+      changeOrigin: true,
+      },
+    },
+  },
+
   css: {
     modules: {
       generateScopedName,

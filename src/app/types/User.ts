@@ -12,17 +12,15 @@ export enum Timezone {
   Камчатка = 12,
 }
 
-export interface Notification {
-  enable: boolean
-  email: string
-  telegramID: string
-}
-
 export interface User {
-  login: string
-  name: string
-  telephone: number
-  timezone: Timezone
-  notification: Notification
-  sureName?: string
+  id: number
+  companyname: string
+  fname: string
+  notifytype: string
+  notifytypestring: string
+  phone: number
+  timezone: string
+  timezonestring: string
+  lname: string
+  calltype: string
 }
