@@ -25,9 +25,7 @@ defineProps<OtherSettingsProps>()
 <style module lang="scss">
 .root {
   display: grid;
-  grid-template-columns: max-content max-content;
-  max-width: 49rem;
-  align-items: flex-start;
+  grid-template-columns: 250px 490px;
 }
 
 .container {

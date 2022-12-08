@@ -2,6 +2,7 @@
   <div :class="$style.root">
     <OtherSettings :locklentaupdate="crutch.locklentaupdate"
                    :selectedTimezone="crutch.timezone"/>
+    <NotificationSettings/>
   </div>
 </template>
 
@@ -11,7 +12,7 @@ import { register } from '../../api/register'
 import { getUser } from '../../api/getUser'
 import { OtherSettings } from '../components/OtherSettings'
 import { User } from '../types/User'
-import { SaveButton } from '../components/SaveButton'
+import { NotificationSettings } from '../components/NotificationSettings'
 
 const user = ref<User>()
 

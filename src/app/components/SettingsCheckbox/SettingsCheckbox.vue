@@ -5,7 +5,10 @@
            :class="$style.custom_checkbox"
            :checked="checked"
            name="input">
-    <label for="checkbox" @click="(checked = !checked)">Автоматически переходить к новым объявлениям</label>
+
+    <label :class="$style.checkbox"
+           for="checkbox"
+           @click="(checked = !checked)">Автоматически переходить к новым объявлениям</label>
 
     <img :class="$style.info"
          src="../../../assets/icons/info.svg"
@@ -22,6 +25,7 @@ const checked = ref(false)
 <style module lang="scss">
 .root {
   display: flex;
+  margin-top: 2.5rem;
 }
 
 .custom_checkbox {
@@ -30,13 +34,17 @@ const checked = ref(false)
   opacity: 0;
 }
 
+.checkbox {
+  max-width: 34rem;
+}
+
 .custom_checkbox+label {
   display: inline-flex;
   cursor: pointer;
-  align-items: center;
   user-select: none;
   font-size: 1.2rem;
   font-weight: 500;
+  line-height: 1;
 }
 .custom_checkbox+label::before {
   content: '';

@@ -33,7 +33,7 @@ defineProps<TimezoneSelectProps>()
 
 const dropdown = ref<HTMLDivElement>()
 
-const isDropdownShow = ref(true)
+const isDropdownShow = ref(false)
 
 // const selectedTimezone = ref<Timezone>()
 
@@ -120,7 +120,9 @@ function handleSelect(timezone: selectedTimezone) {
 
 .dropdown_select {
   box-sizing: border-box;
-  position: relative;
+  position: absolute;
+  top: 28px;
+  width: inherit;
   max-height: 300px;
   border-radius: 3px;
   overflow-y: auto;
