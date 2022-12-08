@@ -30,6 +30,10 @@
 .content {
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .footer {
@@ -59,6 +63,9 @@ html {
 
 body {
   background-color: $main-bg-color;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
 
 h1 {
