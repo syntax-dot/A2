@@ -1,22 +1,27 @@
 <template>
   <div :class="$style.root">
-    <label>
-      <input id="input"
-             type="checkbox"
-             :class="$style.custom_checkbox"
-             name="input">
-      <label for="happy">Автоматически переходить к новым объявлениям</label>
-    </label>
+    <input id="input"
+           type="checkbox"
+           :class="$style.custom_checkbox"
+           :checked="checked"
+           name="input">
+    <label for="checkbox" @click="(checked = !checked)">Автоматически переходить к новым объявлениям</label>
+
+    <img :class="$style.info"
+         src="../../../assets/icons/info.svg"
+         alt="info">
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue'
 
+const checked = ref(false)
 </script>
 
 <style module lang="scss">
 .root {
-
+  display: flex;
 }
 
 .custom_checkbox {
@@ -30,9 +35,12 @@
   cursor: pointer;
   align-items: center;
   user-select: none;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 .custom_checkbox+label::before {
   content: '';
+  box-sizing: border-box;
   display: inline-block;
   width: 1.8rem;
   height: 1.8rem;
@@ -45,26 +53,15 @@
   background-position: center center;
   background-size: 50% 50%;
 }
-.checkbox {
-  width: 1.8rem;
-  height: 1.8rem;
 
-  &::after {
-    content: "";
-    background-color: #2dc574;
-    // position: absolute;
-    border-color: #2dc574;
-  }
+.custom_checkbox:checked+label::before {
+  border-color: #2dc574;
+  background-color: #2dc574;
+  background-image: url("../../../assets/icons/checked.svg");
+  background-size: 70%;
+}
 
-  &::before {
-    content: "";
-    background-color: #2dc574;
-    // position: absolute;
-    border-color: #2dc574;
-  }
-
-  &:checked {
-    background-color: red;
-  }
+.info {
+  width: 20px;
 }
 </style>
