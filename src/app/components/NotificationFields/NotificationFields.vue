@@ -14,6 +14,6 @@ import { CustomRadioBtn } from '../CustomRadioBtn'
 
 <style module lang="scss">
 .root {
-
+  max-width: 37rem;
 }
 </style>
