@@ -8,16 +8,18 @@
            for="radio">
       Custom
     </label>
+    <div>
+      <img v-show="!inputShow"
+           ref="edit"
+           :class="$style.edit"
+           src="../../../assets/icons/edit.svg"
+           alt="edit">
 
-    <img v-show="!inputShow"
-         :class="$style.edit"
-         src="../../../assets/icons/edit.svg"
-         alt="edit"
-         @click="inputShow = !inputShow">
-
-    <input v-show="inputShow"
-           :class="$style.input"
-           type="text">
+      <input v-show="inputShow"
+             ref="input"
+             :class="$style.input"
+             type="text">
+    </div>
   </div>
 </template>
 
@@ -27,6 +29,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const inputShow = ref(false)
 
 const input = ref<HTMLInputElement>()
+const edit = ref<HTMLImageElement>()
 
 onMounted(() => {
   window.addEventListener('click', handleClick)
@@ -38,24 +41,24 @@ onUnmounted(() => {
 
 function handleClick(e: Event) {
   if (e.target instanceof HTMLElement) {
-    let element = e.target
+    const element = e.target
 
-    while (element.parentElement !== null) {
-      if (element === input.value)
-        return
+    if (element === edit.value || element === input.value)
+      inputShow.value = true
 
-      element = element.parentElement
-    }
-
-    inputShow.value = false
+    else
+      inputShow.value = false
   }
 }
 </script>
 
 <style module lang="scss">
+@import "../../../css/variables.scss";
 .root {
   display: flex;
   justify-content: space-between;
+  height: 3.3rem;
+  align-items: center;
 }
 
 .custom_radio {
@@ -98,5 +101,18 @@ function handleClick(e: Event) {
   width: 2.2rem;
   height: 2.2rem;
   cursor: pointer;
+}
+
+.input {
+  box-sizing: border-box;
+  padding: 0.8rem 1rem;
+  font-size: 1.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+
+  &:focus {
+    outline: none;
+    border: 1px solid $main-color;
+  }
 }
 </style>
