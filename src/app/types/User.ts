@@ -1,21 +1,12 @@
-export enum Timezone {
-  Калининград = 2,
-  Москва = 3,
-  Самара = 4,
-  Екатеринбург = 5,
-  Омск = 6,
-  Красноярск = 7,
-  Иркутск = 8,
-  Якутск = 9,
-  Владивосток = 10,
-  Магадан = 11,
-  Камчатка = 12,
-}
-
 export enum NotifyType {
   disabled = '-1',
   telegram = '1',
   email = '2',
+}
+
+export interface Timezone {
+  label: string
+  value: number
 }
 
 export interface NotifyTypeEmail {
@@ -26,6 +17,10 @@ export interface NotifyTypeEmail {
 export interface NotifyTypeTelegram {
   notifytype: NotifyType.telegram
   telegramChat: string
+}
+
+function isNotifyTypeTelegram(arg: WithNotify): arg is NotifyTypeTelegram {
+  return arg.notifytype === NotifyType.telegram
 }
 
 export interface NotifyTypeIsDisabled {

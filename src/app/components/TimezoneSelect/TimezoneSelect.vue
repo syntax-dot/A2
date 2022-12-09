@@ -8,15 +8,16 @@
          :class="$style.dropdown">
       <label :class="$style.title"
              @click="isDropdownShow = !isDropdownShow">
-        {{ Timezone[+selectedTimezone + 3] }}
+        {{ selectedTimezone }}
       </label>
       <Transition name="dropdown_select" appear>
         <div v-show="isDropdownShow"
-             :class="$style.dropdown_select">
-          <div v-for="(timezone, index) in Timezone"
-               :key="timezone"
+             :class="$style.dropdown_select"
+             @click="asd = !asd">
+          <div v-for="timezone in timezones"
+               :key="timezone.value"
                :class="$style.options">
-            {{ timezone }}
+            {{ timezone.label }}
           </div>
         </div>
       </Transition>
@@ -26,16 +27,32 @@
 
 <script lang="ts" setup>
 import { onMounted, onUnmounted, ref } from 'vue'
-import { Timezone } from '../../types/User'
 import { TimezoneSelectProps } from './TimezoneSelect.props'
+import { Timezone } from '../../types/User'
 
-defineProps<TimezoneSelectProps>()
+const asd = ref(false)
 
 const dropdown = ref<HTMLDivElement>()
 
 const isDropdownShow = ref(false)
 
-// const selectedTimezone = ref<Timezone>()
+const props = defineProps<TimezoneSelectProps>()
+
+const timezones: Timezone[] = [
+  { label: 'Калининград', value: 2 },
+  { label: 'Москва', value: 3 },
+  { label: 'Самара', value: 4 },
+  { label: 'Екатеринбург', value: 5 },
+  { label: 'Омск', value: 6 },
+  { label: 'Красноярск', value: 7 },
+  { label: 'Иркутск', value: 8 },
+  { label: 'Якутск', value: 9 },
+  { label: 'Владивосток', value: 10 },
+  { label: 'Магадан', value: 11 },
+  { label: 'Камчатка', value: 12 },
+]
+
+const selectedTimezone = timezones.filter(timezone => timezone.value === +(props.selectedTimezone) + 3)
 
 onMounted(() => {
   window.addEventListener('click', handleClick)
