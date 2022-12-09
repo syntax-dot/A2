@@ -12,17 +12,35 @@ export enum Timezone {
   Камчатка = 12,
 }
 
-export enum Notify {
-  false = 'Выкл',
-  email = 'Email',
-  telegram = 'Telegram ID'
+export enum NotifyType {
+  disabled = '-1',
+  telegram = '1',
+  email = '2',
 }
 
-export interface User {
+export interface NotifyTypeEmail {
+  notifytype: NotifyType.email
+  email: string
+}
+
+export interface NotifyTypeTelegram {
+  notifytype: NotifyType.telegram
+  telegramChat: string
+}
+
+export interface NotifyTypeIsDisabled {
+  notifytype: NotifyType.disabled
+}
+
+export type WithNotify =
+  | NotifyTypeIsDisabled
+  | NotifyTypeTelegram
+  | NotifyTypeEmail
+
+export type User = {
   id: number
   companyname: string
   fname: string
-  notifytype: string
   notifytypestring: string
   locklentaupdate: boolean // Автоматический переход к новым обьявлениям
   phone: number
@@ -30,4 +48,4 @@ export interface User {
   timezonestring: string
   lname: string
   calltype: string
-}
+} & WithNotify
