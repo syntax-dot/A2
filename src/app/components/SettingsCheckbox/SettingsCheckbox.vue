@@ -3,12 +3,12 @@
     <input id="input"
            type="checkbox"
            :class="$style.custom_checkbox"
-           :checked="checked"
+           :checked="lockupdate"
            name="input">
 
     <label :class="$style.checkbox"
            for="checkbox"
-           @click="(checked = !checked)">Автоматически переходить к новым объявлениям</label>
+           @click="$emit('click')">Автоматически переходить к новым объявлениям</label>
 
     <img :class="$style.info"
          src="../../../assets/icons/info.svg"
@@ -17,9 +17,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { SettingsCheckboxProps } from './SettingsCheckbox.props'
 
-const checked = ref(false)
+defineProps<SettingsCheckboxProps>()
+
+function handleClick() {
+
+}
 </script>
 
 <style module lang="scss">

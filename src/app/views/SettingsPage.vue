@@ -1,7 +1,9 @@
 <template>
-  <div :class="$style.root">
-    <OtherSettings :locklentaupdate="crutch.locklentaupdate"
-                   :selectedTimezone="crutch.timezone"/>
+  <div v-if="user"
+       :class="$style.root">
+    <OtherSettings :locklentaupdate="user.locklentaupdate"
+                   :selectedTimezone="user.timezone"
+                   @changeUpdate="user.locklentaupdate = !user.locklentaupdate"/>
     <NotificationSettings/>
   </div>
 </template>

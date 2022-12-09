@@ -8,7 +8,8 @@
       <div>
         <TimezoneSelect :selectedTimezone="selectedTimezone"/>
       </div>
-      <SettingsCheckbox/>
+      <SettingsCheckbox :lockupdate="locklentaupdate"
+                        @click="$emit('changeUpdate')"/>
     </div>
   </div>
 </template>
