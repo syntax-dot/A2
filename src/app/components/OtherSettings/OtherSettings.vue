@@ -25,11 +25,11 @@ import { SaveButton } from '../SaveButton'
 import { SettingsCheckbox } from '../SettingsCheckbox'
 import { TimezoneSelect } from '../TimezoneSelect'
 import { OtherSettingsProps } from './OtherSettingsprops'
-import { injectUser } from '../../composition/user.injectble'
+import { userInjectable } from '../../composition/user.injectble'
 
 defineProps<OtherSettingsProps>()
 
-const user = injectUser()
+const user = userInjectable.inject()
 </script>
 
 <style module lang="scss">

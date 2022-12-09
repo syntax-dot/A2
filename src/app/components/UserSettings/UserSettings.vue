@@ -10,12 +10,12 @@
 import { NotificationSettings } from '../NotificationSettings'
 import { OtherSettings } from '../OtherSettings'
 import { UserSettingsProps } from './UserSettings.props'
-import { provideUser } from '../../composition/user.injectble'
+import { provideUser, userInjectable } from '../../composition/user.injectble'
 import { toRef } from 'vue'
 
 const props = defineProps<UserSettingsProps>()
 
-provideUser(toRef(props, 'user'))
+userInjectable.provide(toRef(props, 'user'))
 </script>
 
 <style module lang="scss">

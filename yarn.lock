@@ -4387,7 +4387,7 @@ postcss@^8.1.10, postcss@^8.4.18:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-"postman-to-openapi@github:hosseinmd/postman-to-openapi#patch-1":
+postman-to-openapi@hosseinmd/postman-to-openapi#patch-1:
   version "2.9.0"
   resolved "https://codeload.github.com/hosseinmd/postman-to-openapi/tar.gz/5a7d41e007c718b4add633fd1ad3ffec5d45e63e"
   dependencies:
