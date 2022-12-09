@@ -1,24 +1,17 @@
 <template>
   <div :class="$style.root">
-    <div>
-      <input id="input"
-             type="checkbox"
-             :class="$style.custom_checkbox"
-             :checked="lockupdate"
-             name="input"
-             @click="emit('click')">
+    <input id="input"
+           type="checkbox"
+           :class="$style.custom_checkbox"
+           :checked="modelValue"
+           name="input"
+           @click="emit('update:modelValue', !modelValue)">
 
-      <label :class="$style.checkbox"
-             for="checkbox">
-        Автоматически переходить к новым объявлениям
-      </label>
-    </div>
-
-    <div>
-      <img :class="$style.info"
-           src="../../../assets/icons/info.svg"
-           alt="info">
-    </div>
+    <label v-if="label"
+           :class="$style.checkbox"
+           for="checkbox">
+      {{ label }}
+    </label>
   </div>
 </template>
 

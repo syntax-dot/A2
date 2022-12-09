@@ -1,7 +1,8 @@
 export interface SettingsCheckboxProps {
-  lockupdate: boolean
+  modelValue: boolean
+  label?: string
 }
 
 export interface SettingsCheckboxEmits {
-  (event: 'click'): void
+  (event: 'update:modelValue', value: boolean): void
 }

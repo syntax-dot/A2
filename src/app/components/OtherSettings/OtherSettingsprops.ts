@@ -1,8 +1,8 @@
 export interface OtherSettingsProps {
   selectedTimezone: string
-  locklentaupdate: boolean
+  isAutoJumpToNewPosts: boolean
 }
 
 export interface OtherSettingsEmits {
-  (emit: '')
+  (emit: 'isAutoJumpToNewPosts:update'): void
 }

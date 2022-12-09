@@ -8,8 +8,15 @@
       <div>
         <TimezoneSelect :selectedTimezone="selectedTimezone"/>
       </div>
-      <SettingsCheckbox :lockupdate="locklentaupdate"
-                        @click="$emit('changeUpdate')"/>
+      <div>
+        <SettingsCheckbox :modelValue="isAutoJumpToNewPosts"
+                          label="Автоматически переходить к новым объявлениям"
+                          @click="$emit('isAutoJumpToNewPosts')"/>
+
+        <img :class="$style.info"
+             src="../../../assets/icons/info.svg"
+             alt="info">
+      </div>
     </div>
   </div>
 </template>
