@@ -8,10 +8,9 @@
            name="input">
 
     <label v-if="label"
+           v-text="label"
            :class="$style.checkbox"
-           for="checkbox">
-      {{ label }}
-    </label>
+           for="checkbox"/>
   </div>
 </template>
 
