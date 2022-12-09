@@ -1,11 +1,11 @@
 <template>
-  <div :class="$style.root">
+  <div :class="$style.root"
+       @click="emit('update:modelValue', !modelValue)">
     <input id="input"
            type="checkbox"
            :class="$style.custom_checkbox"
            :checked="modelValue"
-           name="input"
-           @click="emit('update:modelValue', !modelValue)">
+           name="input">
 
     <label v-if="label"
            :class="$style.checkbox"
