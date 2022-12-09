@@ -23,7 +23,7 @@ const emit = defineEmits<SettingsCheckboxEmits>()
 
 <style module lang="scss">
 .root {
-  margin-top: 2.5rem;
+
 }
 
 .custom_checkbox {

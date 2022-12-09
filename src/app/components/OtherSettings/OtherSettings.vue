@@ -8,7 +8,7 @@
       <div>
         <TimezoneSelect :selectedTimezone="selectedTimezone"/>
       </div>
-      <div>
+      <div :class="$style.checkbox">
         <SettingsCheckbox v-model="user.locklentaupdate"
                           label="Автоматически переходить к новым объявлениям"/>
 
@@ -25,7 +25,7 @@ import { SaveButton } from '../SaveButton'
 import { SettingsCheckbox } from '../SettingsCheckbox'
 import { TimezoneSelect } from '../TimezoneSelect'
 import { OtherSettingsProps } from './OtherSettingsprops'
-import { userInjectable } from '../../composition/user.injectablee'
+import { userInjectable } from '../../composition/user.injectable'
 
 defineProps<OtherSettingsProps>()
 
@@ -52,5 +52,11 @@ const user = userInjectable.inject()
 .info {
   width: 20px;
   pointer-events: none;
+}
+
+.checkbox {
+  display: flex;
+  margin-top: 2.5rem;
+  justify-content: space-between;
 }
 </style>
