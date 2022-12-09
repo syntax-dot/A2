@@ -18,6 +18,7 @@
 
       <input v-show="inputShow"
              ref="input"
+             value=""
              :class="$style.input"
              type="text">
     </div>
@@ -26,11 +27,21 @@
 
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { CustomRadioBtnProps } from './CustomRadioBtn.props'
+import { NotifyType } from '../../types/User'
 
 const inputShow = ref(false)
 
 const input = ref<HTMLInputElement>()
 const edit = ref<HTMLImageElement>()
+
+const props = defineProps<CustomRadioBtnProps>()
+
+const translations = [
+  { Выкл: NotifyType.disabled },
+  { Email: NotifyType.email },
+  { 'Telegram ID': NotifyType.telegram },
+]
 
 onMounted(() => {
   window.addEventListener('click', handleClick)
