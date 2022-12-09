@@ -69,9 +69,4 @@ const emit = defineEmits<SettingsCheckboxEmits>()
 .checkbox {
   max-width: 32rem;
 }
-
-.info {
-  width: 20px;
-  pointer-events: none;
-}
 </style>

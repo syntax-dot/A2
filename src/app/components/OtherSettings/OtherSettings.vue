@@ -48,4 +48,9 @@ const user = injectUser()
   padding-bottom: 1.5rem;
   border-bottom: 0.1rem solid #e1e1e3;
 }
+
+.info {
+  width: 20px;
+  pointer-events: none;
+}
 </style>
