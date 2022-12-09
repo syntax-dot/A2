@@ -1,10 +1,12 @@
-import { inject, InjectionKey, provide, ref, Ref } from 'vue'
+import { inject, InjectionKey, provide, ref, Ref, watch } from 'vue'
 import { User } from '../types/User'
 
 const userKey: InjectionKey<Ref<User>> = Symbol('user')
 
 export function provideUser(initialUser: Ref<User>) {
   const user = ref<User>({ ...initialUser.value })
+
+  watch(initialUser, value => user.value = value)
 
   provide(userKey, user)
 
