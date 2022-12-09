@@ -3,8 +3,8 @@ import { User } from '../types/User'
 
 const userKey: InjectionKey<Ref<User>> = Symbol('user')
 
-export function provideUser(initialUser: User) {
-  const user = ref<User>({ ...initialUser })
+export function provideUser(initialUser: Ref<User>) {
+  const user = ref<User>({ ...initialUser.value })
 
   provide(userKey, user)
 
