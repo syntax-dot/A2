@@ -1,10 +1,7 @@
 <template>
   <div v-if="user"
        :class="$style.root">
-    <OtherSettings :locklentaupdate="user.locklentaupdate"
-                   :selectedTimezone="user.timezone"
-                   @changeUpdate="user.locklentaupdate = !user.locklentaupdate"/>
-    <NotificationSettings/>
+    <UserSettings :user="user"/>
   </div>
 </template>
 
@@ -12,9 +9,8 @@
 import { onMounted, ref } from 'vue'
 import { register } from '../../api/register'
 import { getUser } from '../../api/getUser'
-import { OtherSettings } from '../components/OtherSettings'
 import { User } from '../types/User'
-import { NotificationSettings } from '../components/NotificationSettings'
+import UserSettings from '../components/UserSettings/UserSettings.vue'
 
 const user = ref<User>()
 

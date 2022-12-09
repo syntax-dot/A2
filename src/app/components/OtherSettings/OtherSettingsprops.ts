@@ -4,5 +4,5 @@ export interface OtherSettingsProps {
 }
 
 export interface OtherSettingsEmits {
-  (emit: 'isAutoJumpToNewPosts:update'): void
+  (emit: 'update:isAutoJumpToNewPosts'): void
 }
