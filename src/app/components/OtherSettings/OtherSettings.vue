@@ -25,7 +25,7 @@ import { SaveButton } from '../SaveButton'
 import { SettingsCheckbox } from '../SettingsCheckbox'
 import { TimezoneSelect } from '../TimezoneSelect'
 import { OtherSettingsProps } from './OtherSettingsprops'
-import { userInjectable } from '../../composition/user.injectble'
+import { userInjectable } from '../../composition/user.injectablee'
 
 defineProps<OtherSettingsProps>()
 

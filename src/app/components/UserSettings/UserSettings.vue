@@ -10,7 +10,7 @@
 import { NotificationSettings } from '../NotificationSettings'
 import { OtherSettings } from '../OtherSettings'
 import { UserSettingsProps } from './UserSettings.props'
-import { provideUser, userInjectable } from '../../composition/user.injectble'
+import { provideUser, userInjectable } from '../../composition/user.injectablee'
 import { toRef } from 'vue'
 
 const props = defineProps<UserSettingsProps>()
