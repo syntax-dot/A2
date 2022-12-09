@@ -6,18 +6,22 @@
 
     <div ref="dropdown"
          :class="$style.dropdown">
-      <label :class="$style.title"
+      <label v-if="selectedTimezone"
+             :class="$style.title"
              @click="isDropdownShow = !isDropdownShow">
-        {{ selectedTimezone }}
+        {{ selectedTimezone.label }} (GMT+{{ selectedTimezone.value }})
       </label>
+
       <Transition name="dropdown_select" appear>
         <div v-show="isDropdownShow"
              :class="$style.dropdown_select"
              @click="asd = !asd">
           <div v-for="timezone in timezones"
                :key="timezone.value"
-               :class="$style.options">
-            {{ timezone.label }}
+               :class="[$style.options, {
+                 [$style.selected]: timezone.value === selectedTimezone.value
+               }]">
+            {{ timezone.label }} (GMT+{{ timezone.value }})
           </div>
         </div>
       </Transition>
@@ -52,7 +56,8 @@ const timezones: Timezone[] = [
   { label: 'Камчатка', value: 12 },
 ]
 
-const selectedTimezone = timezones.filter(timezone => timezone.value === +(props.selectedTimezone) + 3)
+const selectedTimezone: Timezone | undefined = timezones
+  .find(timezone => timezone.value === +(props.selectedTimezone) + 3)
 
 onMounted(() => {
   window.addEventListener('click', handleClick)
@@ -155,6 +160,21 @@ function handleSelect(timezone: selectedTimezone) {
 
   &:hover {
     background-color: $save-button-hover;
+  }
+}
+
+.selected {
+  background-color: $save-button-hover;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    margin-top: 4px;
+    width: 15px;
+    height: 15px;
+    background-image: url('../../../assets/icons/checked.svg');
+    background-repeat: no-repeat;
   }
 }
 </style>
