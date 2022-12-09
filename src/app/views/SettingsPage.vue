@@ -53,7 +53,7 @@ onMounted(async () => {
   if (response)
     user.value = response
 
-  // console.log(user.value)
+  console.log(user.value)
 })
 </script>
 

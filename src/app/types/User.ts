@@ -12,6 +12,12 @@ export enum Timezone {
   Камчатка = 12,
 }
 
+export enum Notify {
+  false = 'Выкл',
+  email = 'Email',
+  telegram = 'Telegram ID'
+}
+
 export interface User {
   id: number
   companyname: string
