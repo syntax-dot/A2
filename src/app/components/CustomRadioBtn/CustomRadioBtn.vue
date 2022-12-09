@@ -3,7 +3,8 @@
     <input id="radio"
            type="radio"
            :class="$style.custom_radio"
-           name="radio">
+           name="radio"
+           value="notifytype">
     <label :class="$style.label"
            for="radio">
       Custom
