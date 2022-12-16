@@ -19,10 +19,6 @@ export interface NotifyTypeTelegram {
   telegramChat: string
 }
 
-// function isNotifyTypeTelegram(arg: WithNotify): arg is NotifyTypeTelegram {
-//   return arg.notifytype === NotifyType.telegram
-// }
-
 export interface NotifyTypeIsDisabled {
   notifytype: NotifyType.disabled
 }

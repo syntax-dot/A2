@@ -74,35 +74,43 @@ function handleClick(e: Event) {
 }
 
 .custom_radio {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-}
-
-.custom_radio+label {
-  display: inline-flex;
-  align-items: center;
-  user-select: none;
-}
-
-.custom_radio+label::before {
-  content: '';
-  box-sizing: border-box;
-  display: inline-block;
+  position: relative;
   width: 1.8rem;
   height: 1.8rem;
-  flex-shrink: 0;
-  flex-grow: 0;
-  border: 1px solid #2dc574;
-  border-radius: 50%;
-  margin-right: 0.5em;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 50% 50%;
-}
 
-.custom_radio:checked+label::before {
-  border-width: 2px;
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    border-radius: 0.2rem;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &::before {
+    box-sizing: border-box;
+    border: 1px solid #2dc574;
+    background-color: #fff;
+  }
+
+  &:checked::after {
+    border-color: #2dc574;
+    background-color: #2dc574;
+    background-image: url("../../../assets/icons/checked.svg");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &+label {
+    margin-left: 1rem;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1;
+  }
 }
 
 .label {
